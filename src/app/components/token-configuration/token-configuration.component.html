@@ -1,0 +1,13 @@
+<div>
+  <h3>Token Configuration</h3>
+
+  <div>
+    <form (submit)="setNewToken()" class="mb-5">
+      <div class="form-group mb-2">
+        <label for="token">New Token</label>
+        <input type="text" class="form-control" id="token" name="token" placeholder="Enter New Token" [(ngModel)]="token">
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>

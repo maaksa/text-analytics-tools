@@ -10,6 +10,13 @@ import { EntityExtractionComponent } from './components/entity-extraction/entity
 import { TextSimilarityComponent } from './components/text-similarity/text-similarity.component';
 import { LanguageDetectionComponent } from './components/language-detection/language-detection.component';
 import { SentimentAnalysisComponent } from './components/sentiment-analysis/sentiment-analysis.component';
+import { HistoryComponent } from './components/history/history.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {IgxSliderModule} from "igniteui-angular";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,12 +26,19 @@ import { SentimentAnalysisComponent } from './components/sentiment-analysis/sent
     EntityExtractionComponent,
     TextSimilarityComponent,
     LanguageDetectionComponent,
-    SentimentAnalysisComponent
+    SentimentAnalysisComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatCardModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    IgxSliderModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

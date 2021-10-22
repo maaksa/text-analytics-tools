@@ -1,1 +1,24 @@
-<p>sentiment-analysis works!</p>
+<div>
+  <h3>Sentiment Analysis</h3>
+
+  <div>
+    <form (submit)="getSentimentAnalysis()" class="mb-5">
+      <div class="form-group mb-2">
+        <textarea type="text" class="form-control" id="token" name="token" placeholder="Enter Text"
+                  [(ngModel)]="inputText"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+
+    <p>Choose Language</p>
+    <select name="demo" id="#" [(ngModel)]="lang">
+      <option selected="selected" value="it">Italian</option>
+      <option value="en">English</option>
+      <option value="auto">Auto</option>
+    </select>
+
+    <mat-card>Type: {{type}}</mat-card>
+    <mat-card>Score: {{score}}</mat-card>
+
+  </div>
+</div>

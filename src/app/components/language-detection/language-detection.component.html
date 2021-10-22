@@ -1,1 +1,21 @@
-<p>language-detection works!</p>
+<div>
+  <h3>Language Detection</h3>
+
+  <div>
+    <form class="mb-5">
+      <div class="form-group mb-2">
+        <textarea type="text" class="form-control" id="text1" name="token" placeholder="Enter Text"
+                  [(ngModel)]="inputText"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Detect Language</button>
+    </form>
+
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="clean">Clean</mat-checkbox>
+    </section>
+
+    <mat-card>Language: </mat-card>
+    <mat-card>Confidence Level: {{confidenceLevel}}</mat-card>
+
+  </div>
+</div>

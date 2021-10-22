@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextSimilarityComponent implements OnInit {
 
-  constructor() { }
+  inputText1: string;
+  inputText2: string;
+
+  constructor() {
+    this.inputText1 = "";
+    this.inputText2 = "";
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,20 @@
-<p>text-similarity works!</p>
+<div>
+  <h3>Text Similarity</h3>
+
+  <div>
+    <form class="mb-5">
+      <div class="form-group mb-2">
+        <textarea type="text" class="form-control" id="text1" name="token" placeholder="Enter Text"
+                  [(ngModel)]="inputText1"></textarea>
+      </div>
+      <div class="form-group mb-2">
+        <textarea type="text" class="form-control" id="text2" name="token" placeholder="Enter Text"
+                  [(ngModel)]="inputText2"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Compute similarity</button>
+    </form>
+
+    <mat-card>Similarity: </mat-card>
+
+  </div>
+</div>

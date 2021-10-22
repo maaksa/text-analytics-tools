@@ -1,1 +1,63 @@
-<p>entity-extraction works!</p>
+<div>
+  <h3>Entity Extraction</h3>
+
+  <div>
+    <form (submit)="setInputText()" class="mb-5">
+      <div class="form-group mb-2">
+        <textarea type="text" class="form-control" id="token" name="token" placeholder="Enter Text"
+                  [(ngModel)]="inputText"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Extract Entities</button>
+    </form>
+
+    <div>
+      Minimum confidence level:  {{value}}
+      <br>
+      <input type="range" name="min_confidence" [(ngModel)]="value" id="id_min_confidence" class="rangeinput" max="1"
+             step="0.1"
+             min="0" required="">
+    </div>
+
+    <div class="span5">
+      <div>
+        <div class="row-fluid">
+          <h4>Optional parameters</h4>
+        </div>
+
+        <div class="span6" data-content="Enable special hashtag parsing to correctly analyze tweets and facebook posts"
+             data-trigger="hover" data-placement="top" data-title="Social" data-original-title="" title="">
+          <div id="cb_div_id_image" class="control-group">
+            <div class="controls">
+              <label for="id_image" class="checkbox">
+                <input type="checkbox" name="social" id="id_image" class="checkboxinput" [(ngModel)]="image"> image
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="span6">
+          <div id="cb_div_id_abstract" class="control-group">
+            <div class="controls">
+              <label for="id_deep_abstract" class="checkbox ">
+                <input type="checkbox" name="deep_analysis" id="id_deep_abstract" class="checkboxinput"
+                       [(ngModel)]="abstract"> abstract
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="span6">
+          <div id="cb_div_id_categories" class="control-group">
+            <div class="controls">
+              <label for="id_deep_categories" class="checkbox ">
+                <input type="checkbox" name="deep_analysis" id="id_deep_categories" class="checkboxinput"
+                       [(ngModel)]="categories"> categories
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

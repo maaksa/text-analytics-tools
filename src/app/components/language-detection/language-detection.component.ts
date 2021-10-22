@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-language-detection',
@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageDetectionComponent implements OnInit {
 
-  constructor() { }
+  inputText: string;
+  clean: boolean;
+  confidenceLevel: number;
+
+  constructor() {
+    this.inputText = '';
+    this.clean = false;
+    this.confidenceLevel = 0
+  }
 
   ngOnInit(): void {
   }

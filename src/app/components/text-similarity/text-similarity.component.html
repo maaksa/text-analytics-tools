@@ -2,7 +2,7 @@
   <h3>Text Similarity</h3>
 
   <div>
-    <form class="mb-5">
+    <form (submit)="getTextSimilarity()" class="mb-5">
       <div class="form-group mb-2">
         <textarea type="text" class="form-control" id="text1" name="token" placeholder="Enter Text"
                   [(ngModel)]="inputText1"></textarea>
@@ -14,7 +14,7 @@
       <button type="submit" class="btn btn-primary">Compute similarity</button>
     </form>
 
-    <mat-card>Similarity: </mat-card>
+    <h3>Similarity: {{similarity}}</h3>
 
   </div>
 </div>

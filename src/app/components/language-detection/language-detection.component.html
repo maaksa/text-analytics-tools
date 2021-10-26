@@ -2,7 +2,7 @@
   <h3>Language Detection</h3>
 
   <div>
-    <form class="mb-5">
+    <form (submit)="getLanguageDetection()" class="mb-5">
       <div class="form-group mb-2">
         <textarea type="text" class="form-control" id="text1" name="token" placeholder="Enter Text"
                   [(ngModel)]="inputText"></textarea>
@@ -14,8 +14,8 @@
       <mat-checkbox class="example-margin" [(ngModel)]="clean">Clean</mat-checkbox>
     </section>
 
-    <mat-card>Language: </mat-card>
-    <mat-card>Confidence Level: {{confidenceLevel}}</mat-card>
+    <h3>Language: {{lang}}</h3>
+    <h3>Confidence Level: {{confidenceLevel}}</h3>
 
   </div>
 </div>

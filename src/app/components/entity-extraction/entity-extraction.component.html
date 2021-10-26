@@ -2,7 +2,7 @@
   <h3>Entity Extraction</h3>
 
   <div>
-    <form (submit)="setInputText()" class="mb-5">
+    <form (submit)="getLanguageDetection()" class="mb-5">
       <div class="form-group mb-2">
         <textarea type="text" class="form-control" id="token" name="token" placeholder="Enter Text"
                   [(ngModel)]="inputText"></textarea>
@@ -11,9 +11,10 @@
     </form>
 
     <div>
-      Minimum confidence level:  {{value}}
+      Minimum confidence level:  {{minConfidence}}
       <br>
-      <input type="range" name="min_confidence" [(ngModel)]="value" id="id_min_confidence" class="rangeinput" max="1"
+      <input type="range" name="min_confidence" [(ngModel)]="minConfidence" id="id_min_confidence" class="rangeinput"
+             max="1"
              step="0.1"
              min="0" required="">
     </div>
@@ -29,7 +30,7 @@
           <div id="cb_div_id_image" class="control-group">
             <div class="controls">
               <label for="id_image" class="checkbox">
-                <input type="checkbox" name="social" id="id_image" class="checkboxinput" [(ngModel)]="image"> image
+                <input type="checkbox" name="social" id="id_image" class="checkboxinput" [(ngModel)]="isImage"> image
               </label>
             </div>
           </div>
@@ -40,7 +41,7 @@
             <div class="controls">
               <label for="id_deep_abstract" class="checkbox ">
                 <input type="checkbox" name="deep_analysis" id="id_deep_abstract" class="checkboxinput"
-                       [(ngModel)]="abstract"> abstract
+                       [(ngModel)]="isAbstract"> abstract
               </label>
             </div>
           </div>
@@ -51,13 +52,27 @@
             <div class="controls">
               <label for="id_deep_categories" class="checkbox ">
                 <input type="checkbox" name="deep_analysis" id="id_deep_categories" class="checkboxinput"
-                       [(ngModel)]="categories"> categories
+                       [(ngModel)]="isCategories"> categories
               </label>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div *ngFor="let entity of annotations; let i = index;" class="mb-2">
+      <h3>Entity</h3>
+      <h5>{{ i + 1 }}. {{ entity.title }}</h5>
+      <h3>Abstract</h3>
+      <p>{{entity.abstract}}</p>
+      <h3>Categories</h3>
+      <div *ngFor="let category of entity.categories; let i = index;" class="mb-2">
+        <h6>{{ i + 1 }}. {{ category }}</h6>
+      </div>
+      <h3>Image</h3>
+      <img class="images" src="{{entity.image.thumbnail}}" alt=""/>
+    </div>
+    <br>
 
   </div>
 </div>

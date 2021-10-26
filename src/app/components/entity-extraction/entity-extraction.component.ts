@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EntityExtractionService} from "../../services/entity-extraction.service";
+import {SingleEntity} from "../../models/entity-extraction/EntityExtractionResponse";
 
 
 @Component({
@@ -10,17 +11,28 @@ import {EntityExtractionService} from "../../services/entity-extraction.service"
 export class EntityExtractionComponent implements OnInit {
 
   inputText: string;
-  value: number;
-  image: boolean;
-  abstract: boolean;
-  categories: boolean;
+  minConfidence: number;
+  isImage: boolean;
+  isAbstract: boolean;
+  isCategories: boolean;
+
+  titles: String[]
+  image: string
+  abstract: string
+  annotations: Array<SingleEntity>
+  categories: String[]
 
   constructor(private entityExtractionService: EntityExtractionService) {
     this.inputText = entityExtractionService.getInputText()
-    this.value = 0.5;
-    this.image = false;
-    this.abstract = false;
-    this.categories = false;
+    this.isImage = false;
+    this.isAbstract = false;
+    this.isCategories = false;
+    this.minConfidence = 0.5;
+    this.abstract = ''
+    this.titles = []
+    this.image = ''
+    this.categories = []
+    this.annotations = []
   }
 
   public ngOnInit() {
@@ -31,6 +43,17 @@ export class EntityExtractionComponent implements OnInit {
       return
     }
     this.entityExtractionService.setInputText(this.inputText)
+  }
+
+  getLanguageDetection() {
+    this.entityExtractionService.getEntityExtraction(this.inputText, this.minConfidence, this.isAbstract, this.isImage, this.isCategories).subscribe((response) => {
+      this.annotations = response.annotations
+      response.annotations.map(value => {
+        this.abstract = value.abstract
+        this.categories = value.categories
+        this.image = value.image.thumbnail
+      })
+    })
   }
 
 }

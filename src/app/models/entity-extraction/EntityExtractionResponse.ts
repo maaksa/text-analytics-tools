@@ -2,7 +2,7 @@ export interface EntityExtractionResponse {
   annotations: Array<SingleEntity>
 }
 
-interface SingleEntity {
+export interface SingleEntity {
   title: string,
   abstract: string,
   categories: Array<String>,

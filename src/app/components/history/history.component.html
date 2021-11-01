@@ -1,1 +1,9 @@
-<p>history works!</p>
+<div>
+  <h3>Request History</h3>
+
+  <div *ngIf="requestHistories.length != 0 ">
+    <div *ngFor="let history of requestHistories;" class="mb-2">
+      <p><b>Time: </b>{{ history.timestamp }}, <b>Method: </b>  {{ history.method }}, <b>URL: </b>  {{history.url}}</p>
+    </div>
+  </div>
+</div>

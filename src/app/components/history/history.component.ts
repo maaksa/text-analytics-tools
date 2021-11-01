@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RequestHistory} from "../../models/history/RequestHistory";
+import {HistoryStore} from "../../models/history/HistoryStore";
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  requestHistories: RequestHistory[] = []
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.requestHistories = HistoryStore.getRequestHistoryStore()
   }
 
 }

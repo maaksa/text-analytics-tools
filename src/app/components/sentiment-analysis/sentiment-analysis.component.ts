@@ -11,14 +11,19 @@ export class SentimentAnalysisComponent implements OnInit {
   inputText: string
   lang: string
 
+  primaryColor = {
+    r: 0,
+    g: 0,
+    b: 0
+  }
+
   type: string
-  score: number
+  score: number | undefined
 
   constructor(private sentimentAnalysisService: SentimentAnalysisService) {
     this.inputText = ''
     this.lang = ''
     this.type = ''
-    this.score = 0
   }
 
   ngOnInit(): void {
@@ -27,9 +32,15 @@ export class SentimentAnalysisComponent implements OnInit {
   getSentimentAnalysis() {
     this.sentimentAnalysisService.getSentimentAnalysis(this.lang, this.inputText).subscribe((response) => {
       this.type = response.sentiment.type
-      this.score = response.sentiment.score
+      this.score = this.setNewScore(response.sentiment.score)
+      this.primaryColor.r = 255 + (0 - 255) * this.score
+      this.primaryColor.g = 255 * this.score
+      this.primaryColor.b = 0
     })
   }
 
+  setNewScore(score: number): number {
+    return (score - (-1)) / (1 - (-1));
+  }
 
 }
